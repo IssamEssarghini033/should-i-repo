@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const connectDB = require('./config/database');
 const decisionRoutes = require('./routes/decisionRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -11,6 +12,12 @@ connectDB();
 
 // Middleware
 app.use(express.json());  // For parsing JSON requests
+
+// Use CORS to allow requests from the client
+app.use(cors({
+    origin: 'http://localhost:3000' // Specify the allowed origin
+}));
+
 
 // Basic route for testing
 app.get('/', (req, res) => {
