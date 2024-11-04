@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../store/authSlice';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
+    const navigate = useNavigate(); 
     const auth = useSelector((state) => state.auth);
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        dispatch(loginUser({ email, password }));
+        const result = await dispatch(loginUser({ email, password }));
+
+        if (result.meta.requestStatus === 'fulfilled') {
+            navigate('/dashboard');
+        }
     };
+
 
     return (
         <div>
