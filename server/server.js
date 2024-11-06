@@ -4,6 +4,7 @@ const cors = require('cors');
 const connectDB = require('./config/database');
 const decisionRoutes = require('./routes/decisionRoutes');
 const userRoutes = require('./routes/userRoutes');
+const aiRoutes = require('./routes/aiRoutes'); 
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/decisions', decisionRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/ai', aiRoutes);
 
 
 // Start the server
