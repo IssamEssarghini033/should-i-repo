@@ -1,0 +1,15 @@
+@import './variables';
+@import './mixins';
+@import './dashboard';
+@import './login';
+
+body,html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: $background-color;
+}
+* {
+    box-sizing: border-box;
+}

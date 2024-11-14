@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../store/authSlice';
 import { useNavigate } from 'react-router-dom';
+import '../styles/main.scss';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -21,27 +22,29 @@ const Login = () => {
 
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleLogin}>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button type="submit">Login</button>
-            </form>
-            {auth.loading && <p>Loading...</p>}
-            {auth.error && <p style={{ color: 'red' }}>{auth.error}</p>}
+        <div className="login-container">
+            <h1>Should I ?</h1>
+            <div className='login-box'>
+                <form onSubmit={handleLogin}>
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <button type="submit" className='submit-button'>Login</button>
+                    {auth.loading && <p>Loading...</p>}
+                    {auth.error && <p className="error-message">{auth.error}</p>}
+                </form>
+            </div>
         </div>
-    );
+    );    
 };
 
 export default Login;
