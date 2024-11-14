@@ -1,11 +1,16 @@
-@import './variables';
-@import './mixins';
+@use '../../styles/_variables.scss' as *;
+@use '../../styles/_mixins.scss' as *;
 
 .login-container {
     @include flex-center(column);
     min-height: 100vh;
     padding: 1rem;
 
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: $primary-color;
+    }
     .login-box {
         background: white;
         padding: 2rem;
@@ -14,11 +19,6 @@
         width: 100%;
         max-width: 400px;
 
-        h1 {
-            font-size: $font-size-large;
-            margin-bottom: 1rem;
-            color: $primary-color;
-        }
 
         form {
             display: flex;
@@ -38,6 +38,22 @@
             .error-message {
                 color: $error-color;
                 font-size: $font-size-base;
+            }
+    
+        }
+    }
+    .go-to-signup {
+        margin-top: 20px;
+        color: $primary-color;
+        font-size: $font-size-base;
+        cursor: pointer;
+  
+        a {
+            text-decoration: none;
+            color: inherit;
+  
+            &:hover {
+                text-decoration: underline;
             }
         }
     }

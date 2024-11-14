@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../store/authSlice';
-import { useNavigate } from 'react-router-dom';
-import '../styles/main.scss';
+import { loginUser } from '../../store/authSlice';
+import { Link, useNavigate } from 'react-router-dom';
+import './login.scss';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -19,7 +19,6 @@ const Login = () => {
             navigate('/dashboard');
         }
     };
-
 
     return (
         <div className="login-container">
@@ -41,6 +40,12 @@ const Login = () => {
                     <button type="submit" className='submit-button'>Login</button>
                     {auth.loading && <p>Loading...</p>}
                     {auth.error && <p className="error-message">{auth.error}</p>}
+                    <p>
+                        Don't have an account?{' '}
+                        <Link to="/signup" className='go-to-signup'>
+                        Sign Up
+                        </Link>
+                    </p>
                 </form>
             </div>
         </div>

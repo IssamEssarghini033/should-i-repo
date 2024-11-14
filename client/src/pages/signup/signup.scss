@@ -1,0 +1,64 @@
+@use '../../styles/_variables.scss' as *;
+@use '../../styles/_mixins.scss' as *;
+
+.signup-container {
+  @include flex-center(column);
+  min-height: 100vh;
+  background-color: $background-color;
+  padding: 40px;
+
+
+  h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: $primary-color;
+  }
+  .signup-box {
+    background: white;
+    padding: 2rem;
+    border-radius: $border-radius;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+
+
+  form {
+      @include flex-center(column);
+      width: 100%;
+      max-width: 400px;
+
+      input {
+          @include input-style;
+          margin-bottom: 16px;
+      }
+
+      button {
+          @include button-style($primary-color, $primary-hover-color);
+          margin-top: 20px;
+      }
+
+      .error-message {
+          color: $error-color;
+          font-size: $font-size-base;
+          margin-top: 10px;
+      }
+      
+  }
+}
+
+  .go-to-login {
+      margin-top: 20px;
+      color: $primary-color;
+      font-size: $font-size-base;
+      cursor: pointer;
+
+      a {
+          text-decoration: none;
+          color: inherit;
+
+          &:hover {
+              text-decoration: underline;
+          }
+      }
+  }
+}

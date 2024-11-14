@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../store/authSlice';
 import { useNavigate } from 'react-router-dom';
-import { fetchAIResponse } from '../store/questionSlice';
-import '../styles/main.scss';
+import { fetchAIResponse } from '../../store/questionSlice';
+import { logout } from '../../store/authSlice';
+import './dashboard.scss';
 
 
 const Dashboard = () => {

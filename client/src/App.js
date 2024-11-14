@@ -1,8 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
+import Login from './pages/login/Login';
+import Dashboard from './pages/dashbord/Dashboard';
+import SignUp from './pages/signup/SignUp';
+import './styles/main.scss';
 
 function App() {
   return (
@@ -10,6 +12,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route 
                     path="/dashboard" 
                     element={

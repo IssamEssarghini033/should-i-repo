@@ -1,5 +1,5 @@
-@import './variables';
-@import './mixins';
+@use '../../styles/_variables.scss' as *;
+@use '../../styles/_mixins.scss' as *;
 
 .dashboard-container {
     padding: 2rem;

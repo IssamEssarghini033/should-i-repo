@@ -1,7 +1,5 @@
-@import './variables';
-@import './mixins';
-@import './dashboard';
-@import './login';
+@use './_variables.scss' as *;
+@use './_mixins.scss' as *;
 
 body,html {
     margin: 0;

@@ -1,8 +1,10 @@
+@use "sass:color";
+
 // Colors
 $primary-color: #3498db;
-$primary-hover-color: darken($primary-color, 10%);
+$primary-hover-color: color.scale($primary-color, $lightness: -10%);
 $secondary-color: #28a745;
-$secondary-hover-color: darken($secondary-color, 10%);
+$secondary-hover-color: color.scale($secondary-color, $lightness: -10%);
 $background-color: #f4f7f6;
 $text-color: #333;
 $border-color: #ccc;
