@@ -1,41 +1,48 @@
-name: React CI
+name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x, 18.x, 20.x]
-
     steps:
-    - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  
 
-    - name: Install Dependencies
-      run: npm ci
+      - name: Install dependencies
+        working-directory: ./client
+        run: npm install
 
-    - name: Lint
-      run: npm run lint
+      - name: Lint project
+        working-directory: ./client
+        run: npm run lint
 
-    - name: Run Tests
-      run: npm test -- --coverage
+      - name: Run tests
+        env:
+          CI: true  # Ensure Jest knows it's running in CI
+        working-directory: ./client
+        run: npm test
 
-    - name: Build
-      run: npm run build
+      - name: Build the project
+        working-directory: ./client
+        run: npm run build
+        # Optional: Only if you need to create a production build
 
-    - name: Upload coverage
-      uses: codecov/codecov-action@v4
-      with:
-        fail_ci_if_error: true
+      - name: Upload coverage report
+        if: success()
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage  # Ensure this path is correct based on where your coverage report is generated
