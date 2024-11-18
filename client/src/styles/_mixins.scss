@@ -30,6 +30,7 @@
         cursor: not-allowed;
     }
 }
+
 @mixin input-style($width: 100%) {
     padding: v.$padding;
     border: 1px solid v.$border-color;

@@ -31,10 +31,6 @@
                 @include input-style();
             }
 
-            .submit-button {
-                @include button-style($primary-color, $primary-hover-color);
-            }
-
             .error-message {
                 color: $error-color;
                 font-size: $font-size-base;

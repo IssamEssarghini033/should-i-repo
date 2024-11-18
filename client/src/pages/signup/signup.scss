@@ -32,11 +32,6 @@
           margin-bottom: 16px;
       }
 
-      button {
-          @include button-style($primary-color, $primary-hover-color);
-          margin-top: 20px;
-      }
-
       .error-message {
           color: $error-color;
           font-size: $font-size-base;

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../store/authSlice';
 import { Link, useNavigate } from 'react-router-dom';
 import './login.scss';
+import Button from '../../components/button/Button';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -37,7 +38,7 @@ const Login = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <button type="submit" className='submit-button'>Login</button>
+                    <Button type="submit" label='Login'/>
                     {auth.loading && <p>Loading...</p>}
                     {auth.error && <p className="error-message">{auth.error}</p>}
                     <p>

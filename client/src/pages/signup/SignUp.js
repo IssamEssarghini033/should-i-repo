@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { registerUser } from '../../store/authSlice';
 import './signup.scss';
+import Button from '../../components/button/Button';
 
 const SignUp = () => {
   const [notMatchPwd, setNotMatchPwd] = useState(false);
@@ -68,7 +69,7 @@ const SignUp = () => {
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
-          <button type="submit">Sign Up</button>
+          <Button type="submit" label='Sign Up'/>
           {auth.loading && <p>Loading...</p>}
           {
             (notMatchPwd || auth.error) && (

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { fetchAIResponse } from '../../store/questionSlice';
 import { logout } from '../../store/authSlice';
 import './dashboard.scss';
+import Button from '../../components/button/Button';
 
 
 const Dashboard = () => {
@@ -27,7 +28,7 @@ const Dashboard = () => {
         <div className="dashboard-container">
           <div className="dashboard-header">
             <h1>Welcome to Your Dashboard</h1>
-            <button onClick={handleLogout}>Logout</button>
+            <Button onClick={handleLogout} label='Logout' />
           </div>
     
           <div className="question-form">
@@ -39,9 +40,7 @@ const Dashboard = () => {
                 onChange={(e) => setQuestion(e.target.value)}
                 required
               />
-              <button type="submit" disabled={loading}>
-                {loading ? 'Thinking...' : 'Submit'}
-              </button>
+              <Button type="submit" variant='secondary' disabled={loading} label={loading ? 'Thinking...' : 'Submit'}/>
             </form>
             {error && <p className="error-message">{error}</p>}
           </div>
